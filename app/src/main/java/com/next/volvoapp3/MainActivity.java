@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HeadlinesFragment.OnHeadlineClickListener {
 public static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +26,19 @@ public static String TAG = MainActivity.class.getSimpleName();
     }
 
     private void addHeadlineFrag() {
-        HeadlinesFragment fragment = HeadlinesFragment.newInstance();
+        /*HeadlinesFragment fragment = HeadlinesFragment.newInstance();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
         fragmentTransaction
                 .add(R.id.fragment_container, fragment)
                 .addToBackStack(null)
-                .commit();
+                .commit();*/
+    }
+
+    @Override// sunil is implementing the tubelight
+    public void onHeadlineClick(String headline) {
+        NewsArticleFragment newsArticleFragment = (NewsArticleFragment) getSupportFragmentManager().findFragmentById(R.id.newarticlefrag);
+        newsArticleFragment.updateTextView(headline);
     }
 }
