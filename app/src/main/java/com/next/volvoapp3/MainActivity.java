@@ -13,7 +13,19 @@ public static String TAG = MainActivity.class.getSimpleName();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i(TAG,"activity oncreate");
+        HeadlinesFragment headlinesFragment = (HeadlinesFragment) getSupportFragmentManager().findFragmentById(R.id.headlinesfrag);
+        if (headlinesFragment != null) {//it means the app is on tablet
+        }
+        else{ //app is on a phone
+            HeadlinesFragment headlinesFragment1 = HeadlinesFragment.newInstance();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction =
+                    fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container,headlinesFragment1).commit();
+        }
+
+
+            Log.i(TAG,"activity oncreate");
        // addHeadlineFrag();
 
 
@@ -39,6 +51,25 @@ public static String TAG = MainActivity.class.getSimpleName();
     @Override// sunil is implementing the tubelight
     public void onHeadlineClick(String headline) {//3b
         NewsArticleFragment newsArticleFragment = (NewsArticleFragment) getSupportFragmentManager().findFragmentById(R.id.newarticlefrag);//5
-        newsArticleFragment.updateTextView(headline);//5a
-    }
+        if (newsArticleFragment != null) {//it means the app is on tablet
+            newsArticleFragment.updateTextView(headline);//5a
+        }
+
+
+        else{ //if its null it means my app is running on a phone
+            NewsArticleFragment fragment = NewsArticleFragment.newInstance();//creating frag dynamically
+            Bundle arguments = new Bundle();
+            arguments.putString("hl",headline);
+            fragment.setArguments(arguments);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+        fragmentTransaction
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+        }
+
+        }
 }

@@ -17,9 +17,10 @@ import androidx.fragment.app.Fragment;
 public class HeadlinesFragment extends Fragment implements AdapterView.OnItemClickListener {
     ListView headlinesListView;
     public static String TAG = HeadlinesFragment.class.getSimpleName();
-   /* public static HeadlinesFragment newInstance() {
+    public static HeadlinesFragment newInstance() {
         return new HeadlinesFragment();
-    }*/
+    }
+
     OnHeadlineClickListener onHeadlineClickListener;//2. declaration
 
     public  interface  OnHeadlineClickListener{    //1.switchboard

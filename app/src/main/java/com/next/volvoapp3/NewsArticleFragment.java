@@ -17,9 +17,9 @@ public class NewsArticleFragment extends Fragment {
 TextView newsTextView;
 
     public static String TAG = NewsArticleFragment.class.getSimpleName();
-   /* public static NewsArticleFragment newInstance() {
+    public static NewsArticleFragment newInstance() {
         return new NewsArticleFragment();
-    }*/
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -42,7 +42,10 @@ TextView newsTextView;
 
         View fragmentView = inflater.inflate(R.layout.fragment_newsarticle,container,false);
         newsTextView = fragmentView.findViewById(R.id.textViewnewsArticle);//7
-        return fragmentView;
+        if (getArguments().containsKey("hl")) {
+            newsTextView.setText(getArguments().getString("hl"));
+        }
+            return fragmentView;
     }
 
     @Override
