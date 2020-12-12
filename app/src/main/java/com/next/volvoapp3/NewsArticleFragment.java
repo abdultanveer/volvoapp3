@@ -41,7 +41,7 @@ TextView newsTextView;
         Log.i(TAG,"oncreateview");
 
         View fragmentView = inflater.inflate(R.layout.fragment_newsarticle,container,false);
-        newsTextView = fragmentView.findViewById(R.id.textViewnewsArticle);
+        newsTextView = fragmentView.findViewById(R.id.textViewnewsArticle);//7
         return fragmentView;
     }
 
@@ -74,7 +74,7 @@ TextView newsTextView;
 
     }
 
-    public void updateTextView(String headline) {
-        newsTextView.setText(headline);
+    public void updateTextView(String headline) {//6
+        newsTextView.setText(headline);//8
     }
 }

@@ -20,10 +20,10 @@ public class HeadlinesFragment extends Fragment implements AdapterView.OnItemCli
    /* public static HeadlinesFragment newInstance() {
         return new HeadlinesFragment();
     }*/
-    OnHeadlineClickListener onHeadlineClickListener;//declaration
+    OnHeadlineClickListener onHeadlineClickListener;//2. declaration
 
-    public  interface  OnHeadlineClickListener{    //switchboard
-        public void onHeadlineClick(String headline);  //switches
+    public  interface  OnHeadlineClickListener{    //1.switchboard
+        public void onHeadlineClick(String headline);  //1a. switches
     }
 
 
@@ -31,7 +31,7 @@ public class HeadlinesFragment extends Fragment implements AdapterView.OnItemCli
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         Log.i(TAG,"onAttach");
-        onHeadlineClickListener = (MainActivity)getActivity();  //wiring behind switchboard to mainacticity--punith
+        onHeadlineClickListener = (MainActivity)getActivity();  //3. wiring behind switchboard to mainacticity--punith
 
     }
 
@@ -86,6 +86,6 @@ public class HeadlinesFragment extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), parent.getAdapter().getItem(position).toString(), Toast.LENGTH_SHORT).show();
-        onHeadlineClickListener.onHeadlineClick(parent.getAdapter().getItem(position).toString());//rachita who's playing with the switch --on
+        onHeadlineClickListener.onHeadlineClick(parent.getAdapter().getItem(position).toString());//4. rachita who's playing with the switch --on
     }
 }

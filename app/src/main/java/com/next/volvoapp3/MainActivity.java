@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity implements HeadlinesFragment.OnHeadlineClickListener {
+public class MainActivity extends AppCompatActivity implements HeadlinesFragment.OnHeadlineClickListener {//3a
 public static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public static String TAG = MainActivity.class.getSimpleName();
     }
 
     @Override// sunil is implementing the tubelight
-    public void onHeadlineClick(String headline) {
-        NewsArticleFragment newsArticleFragment = (NewsArticleFragment) getSupportFragmentManager().findFragmentById(R.id.newarticlefrag);
-        newsArticleFragment.updateTextView(headline);
+    public void onHeadlineClick(String headline) {//3b
+        NewsArticleFragment newsArticleFragment = (NewsArticleFragment) getSupportFragmentManager().findFragmentById(R.id.newarticlefrag);//5
+        newsArticleFragment.updateTextView(headline);//5a
     }
 }
