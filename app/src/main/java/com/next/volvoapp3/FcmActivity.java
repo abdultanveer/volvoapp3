@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,5 +43,16 @@ public static String TAG = FcmActivity.class.getSimpleName();
                         Toast.makeText(FcmActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    public void crash(View view) {
+        throw new RuntimeException("Test Crash"); // Force a crash
+
     }
 }
