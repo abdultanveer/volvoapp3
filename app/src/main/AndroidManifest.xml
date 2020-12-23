@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Volvoapp3">
-        <activity android:name=".DataBindingActivity">
+        <activity android:name=".DaggerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FcmActivity">
+        <activity android:name=".DataBindingActivity">
 
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".FcmActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
